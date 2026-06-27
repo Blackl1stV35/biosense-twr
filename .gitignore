@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.so
+*.dylib
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Rust / Cargo
+poc/rust_kernels/target/
+Cargo.lock
+
+# Maturin build artifacts
+poc/target/
+poc/*.pth
+
+# PyO3 compiled extensions (built by maturin develop)
+poc/biosense_twr/rust_kernels*.so
+poc/biosense_twr/rust_kernels*.pyd
+poc/biosense_twr/rust_kernels*.dll
+
+# Checkpoints & data
+poc/checkpoints/
+*.h5
+*.hdf5
+*.zst
+*.pt
+*.pth
+
+# Plots / outputs
+*.png
+*.pdf
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Google Drive / Colab artifacts
+*.gdrive
+drive/
+
+# Environment files
+.env
+.env.local

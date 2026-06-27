@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
-name = "biosense_twr_rust"
+name = "rust_kernels"
 crate-type = ["cdylib"]
 
 [dependencies]

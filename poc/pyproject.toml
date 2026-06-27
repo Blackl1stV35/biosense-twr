@@ -25,3 +25,4 @@ dependencies = [
 features = ["pyo3/extension-module"]
 module-name = "biosense_twr.rust_kernels"
 python-packages = ["biosense_twr"]
+manifest-path = "rust_kernels/Cargo.toml"
