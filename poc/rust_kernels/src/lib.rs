@@ -22,7 +22,7 @@ mod gravity_inversion;
 ///   muon_density::reconstruct_density_map
 ///   gravity_inversion::estimate_mass_anomaly
 #[pymodule]
-fn biosense_twr_rust(m: &Bound<'_, PyModule>) -> PyResult<()> {
+fn rust_kernels(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(backprojection::backproject_3d, m)?)?;
     m.add_function(wrap_pyfunction!(cfar::ca_cfar_2d, m)?)?;
     m.add_function(wrap_pyfunction!(wall_correction::apply_wall_correction, m)?)?;
