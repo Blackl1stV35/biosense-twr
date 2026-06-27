@@ -1,0 +1,27 @@
+[build-system]
+requires = ["maturin>=1.4,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "biosense-twr"
+version = "0.1.0"
+description = "BioSense TWR: Bio-inspired through-wall radar simulation (Muon + Gravimetry + UWB fusion)"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.1.0",
+    "numpy>=1.26",
+    "scipy>=1.12",
+    "h5py>=3.10",
+    "tqdm>=4.66",
+    "pydantic>=2.5",
+    "gdown>=5.1",
+    "google-auth>=2.25",
+    "google-auth-oauthlib>=1.2",
+    "google-api-python-client>=2.115",
+    "maturin>=1.4",
+]
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
+module-name = "biosense_twr.rust_kernels"
+python-packages = ["biosense_twr"]
