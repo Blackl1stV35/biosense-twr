@@ -95,7 +95,7 @@ class BioSensePoseNet(nn.Module):
         x = self.res3(self.enc3(x))
         x = self.global_pool(x).flatten(1)  # (B, 64)
         x = self.trunk(x)
-        conf   = torch.sigmoid(self.conf_head(x))
+        conf   = self.conf_head(x)                        # raw logits for BCEWithLogitsLoss
         coords = self.coords_head(x).view(-1, N_JOINTS, 3)
         return PoseOutput(confidence=conf, coords=coords)
 
