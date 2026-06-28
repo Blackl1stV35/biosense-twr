@@ -122,12 +122,13 @@ def oks_metric(
 class PoseLoss(nn.Module):
     """
     Combined loss for pose inversion.
-    L = L_conf (BCE) + alpha * L_coord (SmoothL1, only visible joints)
+    L = L_conf (BCEWithLogits) + alpha * L_coord (SmoothL1, only visible joints)
+    conf head returns raw logits — BCEWithLogitsLoss applies sigmoid internally.
     """
-    def __init__(self, alpha: float = 10.0):
+    def __init__(self, alpha: float = 1.0):
         super().__init__()
         self.alpha = alpha
-        self.bce   = nn.BCELoss()
+        self.bce   = nn.BCEWithLogitsLoss(reduction='mean')
         self.sl1   = nn.SmoothL1Loss(reduction='none')
 
     def forward(
@@ -139,5 +140,5 @@ class PoseLoss(nn.Module):
         loss_conf  = self.bce(pred.confidence, gt_conf)
         coord_err  = self.sl1(pred.coords, gt_coords)          # (B, N, 3)
         vis_mask   = gt_conf.unsqueeze(-1).expand_as(coord_err)
-        loss_coord = (coord_err * vis_mask).sum() / (vis_mask.sum() + 1e-9)
+        loss_coord = (coord_err * vis_mask).mean()
         return loss_conf + self.alpha * loss_coord

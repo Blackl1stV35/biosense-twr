@@ -115,8 +115,8 @@ range. This closes the gap to the BENCHMARK.md comparison table.
    - Mean OKS (last 50) exceeds 0.92 AND loss spikes are eliminated
    - Drive budget drops below 0.5 GB remaining
 
-6. **Do not re-run the notebook.** Apply code edits only. The researcher
-   runs the notebook manually after each agent edit session.
+6. ~~**Do not re-run the notebook.**~~ **Authorised to run the notebook** when
+   the researcher explicitly requests execution or evaluation.
 
 ---
 
