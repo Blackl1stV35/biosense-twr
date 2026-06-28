@@ -43,7 +43,6 @@ poc/checkpoints/
 *.pth
 
 # Plots / outputs
-*.png
 *.pdf
 
 # IDE
