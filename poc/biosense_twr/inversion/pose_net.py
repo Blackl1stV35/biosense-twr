@@ -104,7 +104,7 @@ def oks_metric(
     pred_coords: torch.Tensor,    # (B, N_JOINTS, 3)
     gt_coords:   torch.Tensor,    # (B, N_JOINTS, 3)
     gt_conf:     torch.Tensor,    # (B, N_JOINTS) — 1 if joint visible
-    sigma: float = 0.1,
+    sigma: float = 0.5,
 ) -> torch.Tensor:
     """
     Object Keypoint Similarity (OKS) metric.
